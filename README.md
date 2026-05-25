@@ -1,17 +1,17 @@
-# gpt2api
+# image-proxy
 
 > 基于逆向 **chatgpt.com** 的 OpenAI 兼容 SaaS 网关 —— 多账号池 / 代理池 / **IMG2 灰度命中** / **批量出图** / **高并发调度** / 积分计费 / 管理后台一体化。
 
 <p align="center">
-  <a href="https://github.com/432539/gpt2api/stargazers"><img alt="stars" src="https://img.shields.io/github/stars/432539/gpt2api?style=flat-square"></a>
-  <a href="https://github.com/432539/gpt2api/releases"><img alt="release" src="https://img.shields.io/github/v/release/432539/gpt2api?style=flat-square"></a>
+  <a href="https://github.com/432539/image-proxy/stargazers"><img alt="stars" src="https://img.shields.io/github/stars/432539/image-proxy?style=flat-square"></a>
+  <a href="https://github.com/432539/image-proxy/releases"><img alt="release" src="https://img.shields.io/github/v/release/432539/image-proxy?style=flat-square"></a>
   <a href="https://golang.org/"><img alt="go" src="https://img.shields.io/badge/Go-1.22%2B-00ADD8?style=flat-square&logo=go"></a>
   <a href="https://vuejs.org/"><img alt="vue" src="https://img.shields.io/badge/Vue-3-4FC08D?style=flat-square&logo=vue.js"></a>
-  <a href="https://github.com/432539/gpt2api/blob/main/LICENSE"><img alt="license" src="https://img.shields.io/badge/License-MIT-green?style=flat-square"></a>
+  <a href="https://github.com/432539/image-proxy/blob/main/LICENSE"><img alt="license" src="https://img.shields.io/badge/License-MIT-green?style=flat-square"></a>
 </p>
 
-- **仓库地址**:<https://github.com/432539/gpt2api>
-- **技术交流 QQ 群**:`382446`(入群请注明「gpt2api」)
+- **仓库地址**:<https://github.com/432539/image-proxy>
+- **技术交流 QQ 群**:`382446`(入群请注明「image-proxy」)
 
 ---
 
@@ -42,7 +42,7 @@
 
 ## 一、项目定位
 
-`gpt2api` 是一个**自建的 ChatGPT → OpenAI 兼容网关**,把 `chatgpt.com` Plus / Team / Codex 账号的能力,以 **完全兼容 OpenAI API** 的形式(`/v1/chat/completions` / `/v1/images/generations`)开放给下游调用方,同时配套一整套 SaaS 运营后台。
+`image-proxy` 是一个**自建的 ChatGPT → OpenAI 兼容网关**,把 `chatgpt.com` Plus / Team / Codex 账号的能力,以 **完全兼容 OpenAI API** 的形式(`/v1/chat/completions` / `/v1/images/generations`)开放给下游调用方,同时配套一整套 SaaS 运营后台。
 
 适合的场景:
 
@@ -61,7 +61,7 @@
 ### 在线体验 · 文生图 / 批量出图
 
 <p align="center">
-  <img src="docs/screenshots/playground-batch.png" alt="gpt2api 在线体验 · 文生图 · IMG2 批量出图" width="960">
+  <img src="docs/screenshots/playground-batch.png" alt="image-proxy 在线体验 · 文生图 · IMG2 批量出图" width="960">
 </p>
 
 - 左侧:模型选择、画面比例(1:1 / 16:9 / **9:16**)、张数、PROMPT 输入、prompt 预设库;
@@ -71,7 +71,7 @@
 ### 管理后台 · 单图放大预览
 
 <p align="center">
-  <img src="docs/screenshots/playground-preview.png" alt="gpt2api 管理后台 · 图片全屏预览 · 左侧完整菜单" width="960">
+  <img src="docs/screenshots/playground-preview.png" alt="image-proxy 管理后台 · 图片全屏预览 · 左侧完整菜单" width="960">
 </p>
 
 - 左侧:**个人中心 / 后台管理** 双分区菜单 —— API Keys、使用记录、账单与充值、在线体验、接口文档、用户管理、GPT 账号池、代理管理、模型配置、用户分组、用量统计、全局 Keys、审计日志、数据备份、系统设置,一个台子全搞定;
@@ -132,7 +132,7 @@ flowchart LR
     SDK["OpenAI SDK / curl / 自家业务"]
   end
 
-  subgraph Gateway["gpt2api Server :8080"]
+  subgraph Gateway["image-proxy Server :8080"]
     direction TB
     API["Gin Router<br/>/v1/* · /api/*"]
     Auth["APIKey / JWT<br/>RPM · TPM · IP 白名单"]
@@ -199,8 +199,8 @@ flowchart LR
 ### 2. 克隆 + 启动
 
 ```bash
-git clone https://github.com/432539/gpt2api.git
-cd gpt2api/deploy
+git clone https://github.com/432539/image-proxy.git
+cd image-proxy/deploy
 cp .env.example .env
 ```
 
@@ -251,7 +251,7 @@ docker compose logs -f server
 
 ## 六、配置说明
 
-**核心配置文件:`configs/config.yaml`**(Docker 部署时通过环境变量 `GPT2API_*` 覆盖)。完整字段见 [`configs/config.example.yaml`](configs/config.example.yaml)。
+**核心配置文件:`configs/config.yaml`**(Docker 部署时通过环境变量 `IMAGE_PROXY_*` 覆盖)。完整字段见 [`configs/config.example.yaml`](configs/config.example.yaml)。
 
 | 段落 | 关键字段 | 说明 |
 |------|---------|------|
@@ -267,7 +267,7 @@ docker compose logs -f server
 | `upstream` | `sse_read_timeout_sec` | SSE 读超时,批量出图场景建议 300+ |
 | `epay` | `gateway_url`, `pid`, `key` | 易支付网关,用于积分充值 |
 
-**环境变量覆盖规则**:任何 `configs/config.yaml` 字段都可以用 `GPT2API_XXX_YYY` 覆盖。例如 `app.listen` → `GPT2API_APP_LISTEN`。
+**环境变量覆盖规则**:任何 `configs/config.yaml` 字段都可以用 `IMAGE_PROXY_XXX_YYY` 覆盖。例如 `app.listen` → `IMAGE_PROXY_APP_LISTEN`。
 
 ---
 
@@ -365,7 +365,7 @@ curl https://your-domain.com/v1/images/tasks/img_xxx \
 
 #### 如何判断自己命中了 IMG2?
 
-`gpt2api` 在图片生成的每一个关键节点都打了结构化日志,观察 `docker compose logs -f server` 中的 `image runner` 系列:
+`image-proxy` 在图片生成的每一个关键节点都打了结构化日志,观察 `docker compose logs -f server` 中的 `image runner` 系列:
 
 ```text
 image runner SSE parsed         sse_fids=[file_xxx,file_yyy] finish_type=stop image_gen_task_id=...
@@ -410,7 +410,7 @@ ORDER BY img2_rate_pct DESC;
 
 ### 8.2 批量出图 / 多张聚合
 
-`gpt2api` 支持三种"批量"场景:
+`image-proxy` 支持三种"批量"场景:
 
 | 场景 | 调用方式 | 实际并发 |
 |------|---------|---------|
@@ -505,7 +505,7 @@ scheduler:
 ## 十、目录结构
 
 ```text
-gpt2api/
+image-proxy/
 ├── cmd/server/                 # 主入口
 ├── configs/                    # 配置示例
 ├── deploy/                     # Docker / compose / entrypoint / nginx
@@ -689,14 +689,14 @@ chatgpt.com 的实际上游 slug 会随账号等级微调(例如 Plus 用 `gpt-5
 
 ## 十六、License
 
-[MIT](LICENSE) © 2026 gpt2api contributors.
+[MIT](LICENSE) © 2026 image-proxy contributors.
 
 ---
 
 ## 技术交流
 
-- **QQ 群**:`382446`(入群请注明「gpt2api」/「github」)
-- **Issue**:<https://github.com/432539/gpt2api/issues>
-- **Discussions**:<https://github.com/432539/gpt2api/discussions>
+- **QQ 群**:`382446`(入群请注明「image-proxy」/「github」)
+- **Issue**:<https://github.com/432539/image-proxy/issues>
+- **Discussions**:<https://github.com/432539/image-proxy/discussions>
 
 如果这个项目对你有帮助,请给个 ⭐ Star;二次开发或商用遇到问题,欢迎进群交流。

@@ -16,13 +16,13 @@ import (
 	"github.com/google/uuid"
 	"go.uber.org/zap"
 
-	"github.com/432539/gpt2api/internal/apikey"
-	"github.com/432539/gpt2api/internal/billing"
-	"github.com/432539/gpt2api/internal/image"
-	modelpkg "github.com/432539/gpt2api/internal/model"
-	"github.com/432539/gpt2api/internal/upstream/chatgpt"
-	"github.com/432539/gpt2api/internal/usage"
-	"github.com/432539/gpt2api/pkg/logger"
+	"github.com/432539/image-proxy/internal/apikey"
+	"github.com/432539/image-proxy/internal/billing"
+	"github.com/432539/image-proxy/internal/image"
+	modelpkg "github.com/432539/image-proxy/internal/model"
+	"github.com/432539/image-proxy/internal/upstream/chatgpt"
+	"github.com/432539/image-proxy/internal/usage"
+	"github.com/432539/image-proxy/pkg/logger"
 )
 
 // 单张参考图的硬上限(字节)。chatgpt.com 的 /backend-api/files 实测上限大致 20MB。

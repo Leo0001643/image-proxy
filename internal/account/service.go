@@ -8,7 +8,7 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/432539/gpt2api/pkg/crypto"
+	"github.com/432539/image-proxy/pkg/crypto"
 )
 
 // Service 账号池业务。

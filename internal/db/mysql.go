@@ -7,7 +7,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 
-	"github.com/432539/gpt2api/internal/config"
+	"github.com/432539/image-proxy/internal/config"
 )
 
 // NewMySQL 根据配置打开 MySQL 连接池。

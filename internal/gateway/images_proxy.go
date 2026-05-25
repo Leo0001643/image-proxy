@@ -35,8 +35,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 
-	"github.com/432539/gpt2api/internal/upstream/chatgpt"
-	"github.com/432539/gpt2api/pkg/logger"
+	"github.com/432539/image-proxy/internal/upstream/chatgpt"
+	"github.com/432539/image-proxy/pkg/logger"
 )
 
 // ImageAccountResolver 按账号 ID 解出构造 chatgpt client 所需的敏感字段。

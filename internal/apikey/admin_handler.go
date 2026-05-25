@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
 
-	"github.com/432539/gpt2api/pkg/resp"
+	"github.com/432539/image-proxy/pkg/resp"
 )
 
 // AdminHandler 提供跨用户 keys 视角。

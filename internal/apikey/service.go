@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/432539/gpt2api/internal/settings"
+	"github.com/432539/image-proxy/internal/settings"
 )
 
 // Service API Key 业务。

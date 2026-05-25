@@ -6,8 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 
-	"github.com/432539/gpt2api/pkg/logger"
-	"github.com/432539/gpt2api/pkg/resp"
+	"github.com/432539/image-proxy/pkg/logger"
+	"github.com/432539/image-proxy/pkg/resp"
 )
 
 // Recover 捕获 panic,写入日志并返回 500。

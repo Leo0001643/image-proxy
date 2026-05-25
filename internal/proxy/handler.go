@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/432539/gpt2api/pkg/resp"
+	"github.com/432539/image-proxy/pkg/resp"
 )
 
 type Handler struct {

@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/432539/gpt2api/pkg/resp"
+	"github.com/432539/image-proxy/pkg/resp"
 )
 
 // Handler 暴露审计日志只读查询接口(仅 admin,已有 PermAuditRead 权限检查)。

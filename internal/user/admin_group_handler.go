@@ -6,8 +6,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/432539/gpt2api/internal/audit"
-	"github.com/432539/gpt2api/pkg/resp"
+	"github.com/432539/image-proxy/internal/audit"
+	"github.com/432539/image-proxy/pkg/resp"
 )
 
 // AdminGroupHandler 管理员视角下的用户分组 CRUD。

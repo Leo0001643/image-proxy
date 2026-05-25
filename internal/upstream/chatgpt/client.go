@@ -19,7 +19,7 @@ import (
 	"go.uber.org/zap"
 	"golang.org/x/net/publicsuffix"
 
-	"github.com/432539/gpt2api/pkg/logger"
+	"github.com/432539/image-proxy/pkg/logger"
 )
 
 func loggerL() *zap.Logger { return logger.L() }

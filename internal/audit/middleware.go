@@ -9,8 +9,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 
-	"github.com/432539/gpt2api/internal/middleware"
-	"github.com/432539/gpt2api/pkg/logger"
+	"github.com/432539/image-proxy/internal/middleware"
+	"github.com/432539/image-proxy/pkg/logger"
 )
 
 // Middleware 在 /api/admin/* 下自动记录写操作。

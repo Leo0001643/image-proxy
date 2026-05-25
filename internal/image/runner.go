@@ -10,9 +10,9 @@ import (
 	"github.com/google/uuid"
 	"go.uber.org/zap"
 
-	"github.com/432539/gpt2api/internal/scheduler"
-	"github.com/432539/gpt2api/internal/upstream/chatgpt"
-	"github.com/432539/gpt2api/pkg/logger"
+	"github.com/432539/image-proxy/internal/scheduler"
+	"github.com/432539/image-proxy/internal/upstream/chatgpt"
+	"github.com/432539/image-proxy/pkg/logger"
 )
 
 // Runner 单次/多次生图的执行器。封装完整的 chatgpt.com 协议链路:

@@ -16,11 +16,11 @@ import (
 
 	"github.com/google/uuid"
 
-	"github.com/432539/gpt2api/internal/account"
-	"github.com/432539/gpt2api/internal/config"
-	"github.com/432539/gpt2api/internal/proxy"
-	"github.com/432539/gpt2api/pkg/lock"
-	"github.com/432539/gpt2api/pkg/logger"
+	"github.com/432539/image-proxy/internal/account"
+	"github.com/432539/image-proxy/internal/config"
+	"github.com/432539/image-proxy/internal/proxy"
+	"github.com/432539/image-proxy/pkg/lock"
+	"github.com/432539/image-proxy/pkg/logger"
 
 	"go.uber.org/zap"
 )

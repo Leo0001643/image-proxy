@@ -191,7 +191,7 @@ export async function streamPlayChat(
   onDelta: (text: string) => void,
   signal?: AbortSignal,
 ): Promise<void> {
-  const token = localStorage.getItem('gpt2api.access') || ''
+  const token = localStorage.getItem('image-proxy.access') || ''
   const resp = await fetch('/api/me/playground/chat', {
     method: 'POST',
     headers: {
@@ -262,7 +262,7 @@ export async function playGenerateImage(
   req: PlayImageRequest,
   signal?: AbortSignal,
 ): Promise<PlayImageResponse> {
-  const token = localStorage.getItem('gpt2api.access') || ''
+  const token = localStorage.getItem('image-proxy.access') || ''
   const resp = await fetch('/api/me/playground/image', {
     method: 'POST',
     headers: {
@@ -294,7 +294,7 @@ export async function playEditImage(
   opts?: { n?: number; size?: string; signal?: AbortSignal },
 ): Promise<PlayImageResponse> {
   if (!files.length) throw new Error('至少需要选择一张参考图')
-  const token = localStorage.getItem('gpt2api.access') || ''
+  const token = localStorage.getItem('image-proxy.access') || ''
   const fd = new FormData()
   fd.append('model', model)
   fd.append('prompt', prompt)

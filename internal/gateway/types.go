@@ -1,6 +1,6 @@
 package gateway
 
-import "github.com/432539/gpt2api/internal/upstream/chatgpt"
+import "github.com/432539/image-proxy/internal/upstream/chatgpt"
 
 // ChatCompletionsRequest 对应 OpenAI /v1/chat/completions 请求体子集。
 type ChatCompletionsRequest struct {

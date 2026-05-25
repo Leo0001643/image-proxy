@@ -1,4 +1,4 @@
-# gpt2api 容器化部署
+# image-proxy 容器化部署
 
 一键启动 = `docker compose up -d`。Server 启动时自动:
 
@@ -74,18 +74,18 @@ docker compose logs -f server  # 观察迁移 + 启动日志
 ```bash
 # 手动触发一次迁移(平时容器启动时会自动跑)
 docker compose exec server goose -dir /app/sql/migrations mysql \
-  "$GPT2API_MYSQL_DSN" up
+  "$IMAGE_PROXY_MYSQL_DSN" up
 
 # 查看当前迁移状态
 docker compose exec server goose -dir /app/sql/migrations mysql \
-  "$GPT2API_MYSQL_DSN" status
+  "$IMAGE_PROXY_MYSQL_DSN" status
 
 # 进入 MySQL
-docker compose exec mysql mysql -ugpt2api -p gpt2api
+docker compose exec mysql mysql -uimage-proxy -p image-proxy
 
 # 冷备份(API 之外的兜底方式)
-docker compose exec server mysqldump -hmysql -ugpt2api -p \
-  --single-transaction --quick gpt2api | gzip > gpt2api-$(date +%F).sql.gz
+docker compose exec server mysqldump -hmysql -uimage-proxy -p \
+  --single-transaction --quick image-proxy | gzip > image-proxy-$(date +%F).sql.gz
 ```
 
 ## 单节点 vs 多节点

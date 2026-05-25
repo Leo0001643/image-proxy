@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# gpt2api 容器启动入口。
+# image-proxy 容器启动入口。
 #
 # 职责:
 #   1. 等待 MySQL 可连接(最多 60 秒)
@@ -9,17 +9,17 @@
 # 读取的环境变量:
 #   - MYSQL_HOST        (默认 mysql)
 #   - MYSQL_PORT        (默认 3306)
-#   - MYSQL_USER        (默认 gpt2api)
-#   - MYSQL_PASSWORD    (默认 gpt2api)
-#   - MYSQL_DATABASE    (默认 gpt2api)
+#   - MYSQL_USER        (默认 image-proxy)
+#   - MYSQL_PASSWORD    (默认 image-proxy)
+#   - MYSQL_DATABASE    (默认 image-proxy)
 #   - SKIP_MIGRATE=1    跳过自动迁移
 set -euo pipefail
 
 MYSQL_HOST=${MYSQL_HOST:-mysql}
 MYSQL_PORT=${MYSQL_PORT:-3306}
-MYSQL_USER=${MYSQL_USER:-gpt2api}
-MYSQL_PASSWORD=${MYSQL_PASSWORD:-gpt2api}
-MYSQL_DATABASE=${MYSQL_DATABASE:-gpt2api}
+MYSQL_USER=${MYSQL_USER:-image-proxy}
+MYSQL_PASSWORD=${MYSQL_PASSWORD:-image-proxy}
+MYSQL_DATABASE=${MYSQL_DATABASE:-image-proxy}
 
 log() { echo "[entrypoint] $*"; }
 

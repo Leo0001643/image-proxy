@@ -1,5 +1,5 @@
 app:
-  name: gpt2api
+  name: image-proxy
   env: dev              # dev | prod
   listen: ":8080"
   base_url: "http://localhost:8080"
@@ -7,10 +7,10 @@ app:
 log:
   level: info           # debug | info | warn | error
   format: console       # console | json
-  output: stdout        # stdout | /var/log/gpt2api.log
+  output: stdout        # stdout | /var/log/image-proxy.log
 
 mysql:
-  dsn: "gpt2api:gpt2api@tcp(127.0.0.1:3306)/gpt2api?parseTime=true&loc=Local&charset=utf8mb4&collation=utf8mb4_unicode_ci"
+  dsn: "image-proxy:image-proxy@tcp(127.0.0.1:3306)/image-proxy?parseTime=true&loc=Local&charset=utf8mb4&collation=utf8mb4_unicode_ci"
   # 开发期 100 够用;生产目标 2000 chat SSE + 1000 图,推荐 500,MySQL 侧 max_connections>=1000
   max_open_conns: 100
   max_idle_conns: 20
@@ -27,7 +27,7 @@ jwt:
   secret: "CHANGE_ME_TO_RANDOM_32_BYTES_SECRET"
   access_ttl_sec: 86400
   refresh_ttl_sec: 2592000
-  issuer: "gpt2api"
+  issuer: "image-proxy"
 
 crypto:
   # 32 字节 hex(64 字符),用于 AES-256-GCM 加密账号 AT / cookies
@@ -69,5 +69,5 @@ smtp:
   username: ""
   password: ""
   from: ""
-  from_name: "GPT2API"
+  from_name: "image-proxy"
   use_tls: true

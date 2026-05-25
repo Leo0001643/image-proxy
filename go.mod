@@ -1,4 +1,4 @@
-module github.com/432539/gpt2api
+module github.com/432539/image-proxy
 
 go 1.26.1
 

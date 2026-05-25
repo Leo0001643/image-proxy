@@ -20,7 +20,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/432539/gpt2api/internal/upstream/chatgpt"
+	"github.com/432539/image-proxy/internal/upstream/chatgpt"
 )
 
 func main() {

@@ -9,8 +9,8 @@ import (
 	"github.com/gin-gonic/gin"
 	mysqlDrv "github.com/go-sql-driver/mysql"
 
-	"github.com/432539/gpt2api/internal/audit"
-	"github.com/432539/gpt2api/pkg/resp"
+	"github.com/432539/image-proxy/internal/audit"
+	"github.com/432539/image-proxy/pkg/resp"
 )
 
 // slug 正则:字母开头,可含字母/数字/点/短横/下划线,2~64 位。

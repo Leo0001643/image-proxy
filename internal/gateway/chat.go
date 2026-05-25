@@ -23,15 +23,15 @@ import (
 	"github.com/google/uuid"
 	"go.uber.org/zap"
 
-	"github.com/432539/gpt2api/internal/apikey"
-	"github.com/432539/gpt2api/internal/billing"
-	modelpkg "github.com/432539/gpt2api/internal/model"
-	"github.com/432539/gpt2api/internal/ratelimit"
-	"github.com/432539/gpt2api/internal/scheduler"
-	"github.com/432539/gpt2api/internal/upstream/chatgpt"
-	"github.com/432539/gpt2api/internal/usage"
-	"github.com/432539/gpt2api/internal/user"
-	"github.com/432539/gpt2api/pkg/logger"
+	"github.com/432539/image-proxy/internal/apikey"
+	"github.com/432539/image-proxy/internal/billing"
+	modelpkg "github.com/432539/image-proxy/internal/model"
+	"github.com/432539/image-proxy/internal/ratelimit"
+	"github.com/432539/image-proxy/internal/scheduler"
+	"github.com/432539/image-proxy/internal/upstream/chatgpt"
+	"github.com/432539/image-proxy/internal/usage"
+	"github.com/432539/image-proxy/internal/user"
+	"github.com/432539/image-proxy/pkg/logger"
 )
 
 // Handler 聚合网关需要的所有依赖。

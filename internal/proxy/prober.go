@@ -234,7 +234,7 @@ func (p *Prober) probe(ctx context.Context, pr *Proxy) ProbeResult {
 		out.Error = "构造探测请求失败:" + err.Error()
 		return out
 	}
-	req.Header.Set("User-Agent", "gpt2api-proxy-prober/1.0")
+	req.Header.Set("User-Agent", "image-proxy-proxy-prober/1.0")
 
 	start := time.Now()
 	resp, err := client.Do(req)

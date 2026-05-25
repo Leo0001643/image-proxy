@@ -3,10 +3,10 @@ package settings
 import (
 	"github.com/gin-gonic/gin"
 
-	"github.com/432539/gpt2api/internal/audit"
-	"github.com/432539/gpt2api/internal/middleware"
-	"github.com/432539/gpt2api/pkg/mailer"
-	"github.com/432539/gpt2api/pkg/resp"
+	"github.com/432539/image-proxy/internal/audit"
+	"github.com/432539/image-proxy/internal/middleware"
+	"github.com/432539/image-proxy/pkg/mailer"
+	"github.com/432539/image-proxy/pkg/resp"
 )
 
 // Handler 系统设置 HTTP 接口。

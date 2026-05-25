@@ -14,7 +14,7 @@ const site = useSiteStore()
 const router = useRouter()
 const route = useRoute()
 
-const siteName = computed(() => site.get('site.name', 'GPT2API'))
+const siteName = computed(() => site.get('site.name', 'image-proxy'))
 const siteLogo = computed(() => site.get('site.logo_url', ''))
 const siteFooter = computed(() => site.get('site.footer', ''))
 

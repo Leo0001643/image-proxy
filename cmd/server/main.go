@@ -12,31 +12,31 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/432539/gpt2api/internal/account"
-	"github.com/432539/gpt2api/internal/apikey"
-	"github.com/432539/gpt2api/internal/audit"
-	"github.com/432539/gpt2api/internal/auth"
-	"github.com/432539/gpt2api/internal/backup"
-	"github.com/432539/gpt2api/internal/billing"
-	"github.com/432539/gpt2api/internal/config"
-	"github.com/432539/gpt2api/internal/db"
-	"github.com/432539/gpt2api/internal/gateway"
-	"github.com/432539/gpt2api/internal/image"
-	modelpkg "github.com/432539/gpt2api/internal/model"
-	"github.com/432539/gpt2api/internal/proxy"
-	gwratelimit "github.com/432539/gpt2api/internal/ratelimit"
-	"github.com/432539/gpt2api/internal/recharge"
-	"github.com/432539/gpt2api/internal/scheduler"
-	"github.com/432539/gpt2api/internal/server"
-	"github.com/432539/gpt2api/internal/settings"
-	"github.com/432539/gpt2api/internal/usage"
-	"github.com/432539/gpt2api/internal/user"
-	"github.com/432539/gpt2api/pkg/crypto"
-	pkgjwt "github.com/432539/gpt2api/pkg/jwt"
-	"github.com/432539/gpt2api/pkg/lock"
-	"github.com/432539/gpt2api/pkg/logger"
-	"github.com/432539/gpt2api/pkg/mailer"
-	pkgratelimit "github.com/432539/gpt2api/pkg/ratelimit"
+	"github.com/432539/image-proxy/internal/account"
+	"github.com/432539/image-proxy/internal/apikey"
+	"github.com/432539/image-proxy/internal/audit"
+	"github.com/432539/image-proxy/internal/auth"
+	"github.com/432539/image-proxy/internal/backup"
+	"github.com/432539/image-proxy/internal/billing"
+	"github.com/432539/image-proxy/internal/config"
+	"github.com/432539/image-proxy/internal/db"
+	"github.com/432539/image-proxy/internal/gateway"
+	"github.com/432539/image-proxy/internal/image"
+	modelpkg "github.com/432539/image-proxy/internal/model"
+	"github.com/432539/image-proxy/internal/proxy"
+	gwratelimit "github.com/432539/image-proxy/internal/ratelimit"
+	"github.com/432539/image-proxy/internal/recharge"
+	"github.com/432539/image-proxy/internal/scheduler"
+	"github.com/432539/image-proxy/internal/server"
+	"github.com/432539/image-proxy/internal/settings"
+	"github.com/432539/image-proxy/internal/usage"
+	"github.com/432539/image-proxy/internal/user"
+	"github.com/432539/image-proxy/pkg/crypto"
+	pkgjwt "github.com/432539/image-proxy/pkg/jwt"
+	"github.com/432539/image-proxy/pkg/lock"
+	"github.com/432539/image-proxy/pkg/logger"
+	"github.com/432539/image-proxy/pkg/mailer"
+	pkgratelimit "github.com/432539/image-proxy/pkg/ratelimit"
 )
 
 var (
@@ -52,7 +52,7 @@ var (
 func main() {
 	flag.Parse()
 	if *showVer {
-		fmt.Printf("gpt2api %s (build %s)\n", version, buildTime)
+		fmt.Printf("image-proxy %s (build %s)\n", version, buildTime)
 		return
 	}
 
@@ -69,7 +69,7 @@ func main() {
 	defer logger.Sync()
 
 	log := logger.L()
-	log.Info("boot gpt2api",
+	log.Info("boot image-proxy",
 		zap.String("version", version),
 		zap.String("env", cfg.App.Env),
 		zap.String("listen", cfg.App.Listen),

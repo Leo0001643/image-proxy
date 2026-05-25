@@ -1,4 +1,4 @@
-# GPT2API 控制台(前端)
+# IMAGE_PROXY 控制台(前端)
 
 基于 Vue 3 + TypeScript + Vite + Element Plus 的管理台前端,为 `cmd/server` 提供:
 

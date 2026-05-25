@@ -118,7 +118,7 @@ export function startBrandGuard(): void {
 }
 
 function ensureShadowFooter(): void {
-  const id = '__gpt2api_brand_guard__'
+  const id = '__image-proxy_brand_guard__'
   if (document.getElementById(id)) return
   const p = brandParts()
   const el = document.createElement('div')

@@ -10,12 +10,12 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/432539/gpt2api/internal/billing"
-	"github.com/432539/gpt2api/internal/config"
-	"github.com/432539/gpt2api/internal/settings"
-	"github.com/432539/gpt2api/internal/user"
-	"github.com/432539/gpt2api/pkg/epay"
-	"github.com/432539/gpt2api/pkg/mailer"
+	"github.com/432539/image-proxy/internal/billing"
+	"github.com/432539/image-proxy/internal/config"
+	"github.com/432539/image-proxy/internal/settings"
+	"github.com/432539/image-proxy/internal/user"
+	"github.com/432539/image-proxy/pkg/epay"
+	"github.com/432539/image-proxy/pkg/mailer"
 )
 
 var (

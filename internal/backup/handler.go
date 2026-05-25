@@ -8,10 +8,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/432539/gpt2api/internal/audit"
-	"github.com/432539/gpt2api/internal/auth"
-	"github.com/432539/gpt2api/internal/middleware"
-	"github.com/432539/gpt2api/pkg/resp"
+	"github.com/432539/image-proxy/internal/audit"
+	"github.com/432539/image-proxy/internal/auth"
+	"github.com/432539/image-proxy/internal/middleware"
+	"github.com/432539/image-proxy/pkg/resp"
 )
 
 // Handler 提供 /api/admin/system/backup/* 接口。

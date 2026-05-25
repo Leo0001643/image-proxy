@@ -3,7 +3,7 @@
 # "预构建 + 运行时" 镜像 —— 零外网依赖版本(国内 / 内网环境友好)
 # --------------------------------------------------------------
 # 构建前请先在宿主机生成以下产物(见 deploy/build-local.ps1 / build-local.sh):
-#   deploy/bin/gpt2api           Linux/amd64 可执行
+#   deploy/bin/image-proxy           Linux/amd64 可执行
 #   deploy/bin/goose             Linux/amd64 可执行
 #   web/dist/                    前端 Vite 产物
 #
@@ -23,9 +23,9 @@ RUN sed -i 's@https\?://dl-cdn.alpinelinux.org@http://mirrors.ustc.edu.cn@g' /et
 WORKDIR /app
 
 # 后端 + goose 二进制(宿主交叉编译产物)
-COPY deploy/bin/gpt2api /app/gpt2api
+COPY deploy/bin/image-proxy /app/image-proxy
 COPY deploy/bin/goose   /usr/local/bin/goose
-RUN chmod +x /app/gpt2api /usr/local/bin/goose
+RUN chmod +x /app/image-proxy /usr/local/bin/goose
 
 # 前端构建产物 —— 被 Go server 以 SPA 方式托管
 COPY web/dist /app/web/dist
@@ -44,4 +44,4 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
     CMD curl -fsS http://localhost:8080/healthz || exit 1
 
 ENTRYPOINT ["/app/entrypoint.sh"]
-CMD ["/app/gpt2api", "-c", "/app/configs/config.yaml"]
+CMD ["/app/image-proxy", "-c", "/app/configs/config.yaml"]

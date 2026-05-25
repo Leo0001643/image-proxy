@@ -7,7 +7,7 @@ import (
 
 	"github.com/redis/go-redis/v9"
 
-	"github.com/432539/gpt2api/internal/config"
+	"github.com/432539/image-proxy/internal/config"
 )
 
 // NewRedis 打开 Redis 连接。

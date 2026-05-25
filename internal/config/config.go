@@ -128,7 +128,7 @@ func Load(path string) (*Config, error) {
 	once.Do(func() {
 		v := viper.New()
 		v.SetConfigFile(path)
-		v.SetEnvPrefix("GPT2API")
+		v.SetEnvPrefix("IMAGE_PROXY")
 		v.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 		v.AutomaticEnv()
 		if err := v.ReadInConfig(); err != nil {

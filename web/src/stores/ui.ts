@@ -14,7 +14,7 @@ export const useUIStore = defineStore('ui', () => {
     attribute: 'class',
     valueDark: 'dark',
     valueLight: '',
-    storageKey: 'gpt2api.theme',
+    storageKey: 'image-proxy.theme',
   })
   const toggleDark = useToggle(isDark)
   return { isDark, toggleDark }

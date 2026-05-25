@@ -44,7 +44,7 @@ node scripts/smoke.mjs \
 ```
 
 - `--keep true` 保留脚本创建的 Key、备份文件(便于后续手动验证)
-- 环境变量 `GPT2API_BASE` 可覆盖 `--base`
+- 环境变量 `IMAGE_PROXY_BASE` 可覆盖 `--base`
 
 ### 退出码
 

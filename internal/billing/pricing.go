@@ -1,7 +1,7 @@
 package billing
 
 import (
-	modelpkg "github.com/432539/gpt2api/internal/model"
+	modelpkg "github.com/432539/image-proxy/internal/model"
 )
 
 // ComputeChatCost 计算聊天模型的费用(单位:厘)。

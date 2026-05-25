@@ -1,7 +1,7 @@
 .PHONY: help run build tidy test fmt vet lint migrate-up migrate-down migrate-status docker-up docker-down docker-logs
 
 SHELL := /bin/sh
-APP_NAME := gpt2api
+APP_NAME := image-proxy
 BIN_DIR := bin
 
 CONFIG ?= configs/config.yaml

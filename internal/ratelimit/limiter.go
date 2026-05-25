@@ -13,7 +13,7 @@ import (
 	"fmt"
 	"time"
 
-	pkgrl "github.com/432539/gpt2api/pkg/ratelimit"
+	pkgrl "github.com/432539/image-proxy/pkg/ratelimit"
 )
 
 // Limiter 是"按 Key 维度"的限流服务。

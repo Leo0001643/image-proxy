@@ -20,7 +20,7 @@ import (
 	"github.com/jmoiron/sqlx"
 	"go.uber.org/zap"
 
-	"github.com/432539/gpt2api/pkg/logger"
+	"github.com/432539/image-proxy/pkg/logger"
 )
 
 // Options 可选参数。

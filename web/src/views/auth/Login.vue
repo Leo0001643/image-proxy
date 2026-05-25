@@ -11,7 +11,7 @@ const route = useRoute()
 const store = useUserStore()
 const site = useSiteStore()
 
-const siteName = computed(() => site.get('site.name', 'GPT2API'))
+const siteName = computed(() => site.get('site.name', 'image-proxy'))
 const siteDesc = computed(() =>
   site.get('site.description', '基于 chatgpt.com 的 OpenAI 兼容网关 · 多账号池 · IMG2 灰度 · 批量出图'),
 )

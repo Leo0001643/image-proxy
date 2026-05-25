@@ -90,7 +90,7 @@ flowchart LR
 ## 三、目录结构
 
 ```text
-gpt2api/
+image-proxy/
 ├── cmd/server/main.go          # 主入口
 ├── configs/
 │   ├── config.yaml             # 真实配置(.gitignore)
@@ -668,12 +668,12 @@ html.dark {
 ### 11.5 可观测性
 
 - Prometheus 指标端点 `/metrics`,关键指标:
-  - `gpt2api_http_requests_total{path,status}`
-  - `gpt2api_sse_active_connections`
-  - `gpt2api_image_queue_depth`
-  - `gpt2api_account_status{status}`(healthy/warned/throttled/suspicious/dead 分布)
-  - `gpt2api_upstream_429_total` / `gpt2api_upstream_403_total`
-  - `gpt2api_credit_consume_total{model}`
+  - `image-proxy_http_requests_total{path,status}`
+  - `image-proxy_sse_active_connections`
+  - `image-proxy_image_queue_depth`
+  - `image-proxy_account_status{status}`(healthy/warned/throttled/suspicious/dead 分布)
+  - `image-proxy_upstream_429_total` / `image-proxy_upstream_403_total`
+  - `image-proxy_credit_consume_total{model}`
 - 链路:`request_id` 贯穿日志 / 响应头 / 上游请求
 - 告警门槛:账号池 healthy 占比 < 50%、Redis 断开、MySQL 主库连接占用 > 80%
 

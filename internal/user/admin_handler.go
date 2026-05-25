@@ -7,10 +7,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/432539/gpt2api/internal/audit"
-	"github.com/432539/gpt2api/internal/billing"
-	"github.com/432539/gpt2api/internal/middleware"
-	"github.com/432539/gpt2api/pkg/resp"
+	"github.com/432539/image-proxy/internal/audit"
+	"github.com/432539/image-proxy/internal/billing"
+	"github.com/432539/image-proxy/internal/middleware"
+	"github.com/432539/image-proxy/pkg/resp"
 )
 
 // PasswordService 由 auth 包实现。通过接口解耦,避免 user<->auth 循环依赖。

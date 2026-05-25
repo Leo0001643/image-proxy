@@ -1,13 +1,13 @@
 services:
   mysql:
     image: mysql:8.0
-    container_name: gpt2api-mysql
+    container_name: image-proxy-mysql
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-gpt2api}
-      MYSQL_USER: ${MYSQL_USER:-gpt2api}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-gpt2api}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-image-proxy}
+      MYSQL_USER: ${MYSQL_USER:-image-proxy}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-image-proxy}
       TZ: Asia/Shanghai
     command:
       - --character-set-server=utf8mb4
@@ -30,7 +30,7 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: gpt2api-redis
+    container_name: image-proxy-redis
     restart: unless-stopped
     command: ["redis-server", "--appendonly", "yes"]
     ports:
@@ -47,8 +47,8 @@ services:
     build:
       context: ..
       dockerfile: deploy/Dockerfile
-    image: gpt2api/server:latest
-    container_name: gpt2api-server
+    image: image-proxy/server:latest
+    container_name: image-proxy-server
     restart: unless-stopped
     depends_on:
       mysql:
@@ -60,18 +60,18 @@ services:
       # entrypoint.sh 会用这些值等 MySQL + goose up
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306
-      MYSQL_USER: ${MYSQL_USER:-gpt2api}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-gpt2api}
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-gpt2api}
-      # 通过 GPT2API_* 覆盖 config.yaml 中的任一字段
-      GPT2API_MYSQL_DSN: "${MYSQL_USER:-gpt2api}:${MYSQL_PASSWORD:-gpt2api}@tcp(mysql:3306)/${MYSQL_DATABASE:-gpt2api}?parseTime=true&loc=Local&charset=utf8mb4&collation=utf8mb4_unicode_ci"
-      GPT2API_REDIS_ADDR: "redis:6379"
-      GPT2API_BACKUP_DIR: /app/data/backups
-      GPT2API_BACKUP_RETENTION: ${BACKUP_RETENTION:-30}
-      GPT2API_BACKUP_ALLOW_RESTORE: ${BACKUP_ALLOW_RESTORE:-false}
+      MYSQL_USER: ${MYSQL_USER:-image-proxy}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-image-proxy}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-image-proxy}
+      # 通过 IMAGE_PROXY_* 覆盖 config.yaml 中的任一字段
+      IMAGE_PROXY_MYSQL_DSN: "${MYSQL_USER:-image-proxy}:${MYSQL_PASSWORD:-image-proxy}@tcp(mysql:3306)/${MYSQL_DATABASE:-image-proxy}?parseTime=true&loc=Local&charset=utf8mb4&collation=utf8mb4_unicode_ci"
+      IMAGE_PROXY_REDIS_ADDR: "redis:6379"
+      IMAGE_PROXY_BACKUP_DIR: /app/data/backups
+      IMAGE_PROXY_BACKUP_RETENTION: ${BACKUP_RETENTION:-30}
+      IMAGE_PROXY_BACKUP_ALLOW_RESTORE: ${BACKUP_ALLOW_RESTORE:-false}
       # 强烈建议在 .env 中覆盖下列两项
-      GPT2API_JWT_SECRET: ${JWT_SECRET:-dev_secret_change_me_in_production_please_32b}
-      GPT2API_CRYPTO_AES_KEY: ${CRYPTO_AES_KEY:-0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef}
+      IMAGE_PROXY_JWT_SECRET: ${JWT_SECRET:-dev_secret_change_me_in_production_please_32b}
+      IMAGE_PROXY_CRYPTO_AES_KEY: ${CRYPTO_AES_KEY:-0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef}
     ports:
       - "${HTTP_PORT:-8080}:8080"
     # 给容器指定独立公共 DNS,避免宿主 Clash/V2Ray 等梯子劫持了
@@ -84,7 +84,7 @@ services:
       - ../configs:/app/configs:ro
       - backups:/app/data/backups
       - ./logs:/app/logs
-    command: ["/app/gpt2api", "-c", "/app/configs/config.yaml"]
+    command: ["/app/image-proxy", "-c", "/app/configs/config.yaml"]
 
 volumes:
   mysql_data:

@@ -30,7 +30,7 @@ PROXY      = None  # 为 None 则走本机默认路由；需要代理时填 "htt
 # PROXY_TEMPLATE = "http://p9mx1124350-region-Rand-sid-{sid}-t-1:iy2lmzpy@us.arxlabs.io:3010"
 PROXY_TEMPLATE = None
 BASE_URL   = "https://chatgpt.com"
-OUTPUT_DIR = r"C:\Users\Administrator\Documents\gpt2api_images"
+OUTPUT_DIR = r"C:\Users\Administrator\Documents\image-proxy_images"
 
 # 固定复用的会话 ID：如果有值就在该会话里追加消息；
 # 设为 None 则每次都走"新建会话"流程（init → prepare → send），每次重新洗灰度桶。

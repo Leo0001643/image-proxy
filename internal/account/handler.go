@@ -11,8 +11,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/432539/gpt2api/internal/settings"
-	"github.com/432539/gpt2api/pkg/resp"
+	"github.com/432539/image-proxy/internal/settings"
+	"github.com/432539/image-proxy/pkg/resp"
 )
 
 // ProxyURLResolver 按 proxy_id 取代理 URL(已带密码),供 ImportTokens 时走 RT/ST 换 AT 使用。

@@ -19,8 +19,8 @@ import (
 	mysqlDrv "github.com/go-sql-driver/mysql"
 	"go.uber.org/zap"
 
-	"github.com/432539/gpt2api/internal/config"
-	"github.com/432539/gpt2api/pkg/logger"
+	"github.com/432539/image-proxy/internal/config"
+	"github.com/432539/image-proxy/pkg/logger"
 )
 
 // ErrRestoreDisabled 恢复功能被配置禁用。

@@ -17,18 +17,18 @@ $root = Resolve-Path "$PSScriptRoot/.."
 Set-Location $root
 
 Write-Host "[build-local] repo  = $root"
-Write-Host "[build-local] step1 = cross-build gpt2api"
+Write-Host "[build-local] step1 = cross-build image-proxy"
 $env:GOOS = "linux"
 $env:GOARCH = "amd64"
 $env:CGO_ENABLED = "0"
 New-Item -ItemType Directory -Force deploy/bin | Out-Null
-go build -ldflags "-s -w" -o deploy/bin/gpt2api ./cmd/server
-if ($LASTEXITCODE -ne 0) { throw "gpt2api build failed" }
+go build -ldflags "-s -w" -o deploy/bin/image-proxy ./cmd/server
+if ($LASTEXITCODE -ne 0) { throw "image-proxy build failed" }
 
 $goosePath = Join-Path $root "deploy/bin/goose"
 if ($Force -or -not (Test-Path $goosePath)) {
     Write-Host "[build-local] step2 = cross-build goose (tmp module)"
-    $tmp = Join-Path $env:TEMP "gpt2api-goose-src"
+    $tmp = Join-Path $env:TEMP "image-proxy-goose-src"
     if (Test-Path $tmp) { Remove-Item -Recurse -Force $tmp }
     New-Item -ItemType Directory -Force $tmp | Out-Null
     Push-Location $tmp
@@ -59,4 +59,4 @@ try {
 }
 
 Write-Host "[build-local] done. artifacts:"
-Get-Item deploy/bin/gpt2api, deploy/bin/goose, web/dist/index.html | Format-Table -AutoSize
+Get-Item deploy/bin/image-proxy, deploy/bin/goose, web/dist/index.html | Format-Table -AutoSize

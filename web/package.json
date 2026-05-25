@@ -1,17 +1,17 @@
 {
-  "name": "gpt2api-web",
+  "name": "image-proxy-web",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "gpt2api 控制台前端 · Vue 3 + Element Plus",
+  "description": "image-proxy 控制台前端 · Vue 3 + Element Plus",
   "repository": {
     "type": "git",
-    "url": "https://github.com/432539/gpt2api.git",
+    "url": "https://github.com/432539/image-proxy.git",
     "directory": "web"
   },
-  "homepage": "https://github.com/432539/gpt2api#readme",
+  "homepage": "https://github.com/432539/image-proxy#readme",
   "bugs": {
-    "url": "https://github.com/432539/gpt2api/issues"
+    "url": "https://github.com/432539/image-proxy/issues"
   },
   "license": "MIT",
   "scripts": {

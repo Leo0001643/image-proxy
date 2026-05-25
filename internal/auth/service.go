@@ -7,11 +7,11 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/432539/gpt2api/internal/billing"
-	"github.com/432539/gpt2api/internal/settings"
-	"github.com/432539/gpt2api/internal/user"
-	pkgjwt "github.com/432539/gpt2api/pkg/jwt"
-	"github.com/432539/gpt2api/pkg/mailer"
+	"github.com/432539/image-proxy/internal/billing"
+	"github.com/432539/image-proxy/internal/settings"
+	"github.com/432539/image-proxy/internal/user"
+	pkgjwt "github.com/432539/image-proxy/pkg/jwt"
+	"github.com/432539/image-proxy/pkg/mailer"
 )
 
 // 错误码

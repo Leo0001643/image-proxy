@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/432539/gpt2api/pkg/resp"
+	"github.com/432539/image-proxy/pkg/resp"
 )
 
 // AdminHandler 提供 /api/admin/usage/* 的只读聚合/列表接口。

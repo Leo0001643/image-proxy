@@ -12,7 +12,7 @@ import (
 // mountSPA 把前端 Vite 产物(web/dist)挂到 `/` 上,并实现 SPA 回退(deep link 刷新)。
 //
 // 路径选择优先级:
-//  1. 环境变量 GPT2API_WEB_DIR
+//  1. 环境变量 IMAGE_PROXY_WEB_DIR
 //  2. 容器默认:/app/web/dist
 //  3. 源码工作目录:./web/dist
 //  4. 都不存在则什么都不挂(退化为纯 API)
@@ -76,7 +76,7 @@ var apiPrefixes = []string{
 }
 
 func resolveWebDir() string {
-	if d := os.Getenv("GPT2API_WEB_DIR"); d != "" {
+	if d := os.Getenv("IMAGE_PROXY_WEB_DIR"); d != "" {
 		if isDir(d) {
 			return d
 		}
