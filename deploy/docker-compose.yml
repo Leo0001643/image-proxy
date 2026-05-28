@@ -59,13 +59,13 @@ services:
       TZ: Asia/Shanghai
       # entrypoint.sh 会用这些值等 MySQL + goose up
       MYSQL_HOST: mysql
-      MYSQL_PORT: 3307
+      MYSQL_PORT: 3306
       MYSQL_USER: ${MYSQL_USER:-image-proxy}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-image-proxy}
       MYSQL_DATABASE: ${MYSQL_DATABASE:-image-proxy}
       # 通过 IMAGE_PROXY_* 覆盖 config.yaml 中的任一字段
-      IMAGE_PROXY_MYSQL_DSN: "${MYSQL_USER:-image-proxy}:${MYSQL_PASSWORD:-image-proxy}@tcp(mysql:3307)/${MYSQL_DATABASE:-image-proxy}?parseTime=true&loc=Local&charset=utf8mb4&collation=utf8mb4_unicode_ci"
-      IMAGE_PROXY_REDIS_ADDR: "redis:6389"
+      IMAGE_PROXY_MYSQL_DSN: "${MYSQL_USER:-image-proxy}:${MYSQL_PASSWORD:-image-proxy}@tcp(mysql:3306)/${MYSQL_DATABASE:-image-proxy}?parseTime=true&loc=Local&charset=utf8mb4&collation=utf8mb4_unicode_ci"
+      IMAGE_PROXY_REDIS_ADDR: "redis:6379"
       IMAGE_PROXY_BACKUP_DIR: /app/data/backups
       IMAGE_PROXY_BACKUP_RETENTION: ${BACKUP_RETENTION:-30}
       IMAGE_PROXY_BACKUP_ALLOW_RESTORE: ${BACKUP_ALLOW_RESTORE:-false}
