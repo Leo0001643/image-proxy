@@ -31,7 +31,7 @@ jwt:
 
 crypto:
   # 32 字节 hex(64 字符),用于 AES-256-GCM 加密账号 AT / cookies
-  aes_key: "CHANGE_ME_TO_64_HEX_CHARS_AES_256_KEY_000000000000000000000000"
+  aes_key: "ffc74438b9009799afc865214f03e8566dd7c9e32eccd9857299e804307a2465"
 
 security:
   bcrypt_cost: 10
